@@ -64,11 +64,11 @@ namespace MySql.Data.MySqlClient
 				writer.WriteUtf8("NULL");
 			}
             else if (Value is char)
-			{
+            {
                 writer.Write((byte)'\'');
                 if ((char)Value == '\'')
                     writer.Write('\\');
-			    writer.Write(Convert.ToByte(Value));
+                writer.WriteUtf8(Convert.ToString(Value));
                 writer.Write((byte)'\'');
             }
 			else if (Value is string)
